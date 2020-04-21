@@ -72,7 +72,7 @@ class WordsFlatList extends Component {
         selectedKeywords.forEach(keyword => {
             switch (keyword) {
                 case filters.VERB:
-                    filteredData = filteredData.filter(item => item.isVerb === true);
+                    filteredData = filteredData.filter(item => item.type === 'V');
                     filterWords(search || '', filteredData);
                     break;
                 case filters.IMPURE:
