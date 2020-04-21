@@ -1,5 +1,5 @@
 import React, {useRef} from 'react';
-import {Button, StyleSheet, Text, TextInput, View} from 'react-native';
+import {Button, StyleSheet, View} from 'react-native';
 import t from 'tcomb-form-native';
 import {saveWord} from '../repository/LanguageRepository';
 
@@ -28,7 +28,6 @@ const options = {
 };
 
 const AddScreenForm = ({navigation}) => {
-
     const formReference = useRef();
 
     const addWord = () => {
