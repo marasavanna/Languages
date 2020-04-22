@@ -3,9 +3,23 @@ import {StyleSheet, Text, View} from 'react-native';
 
 
 const WordListItem = ({type, title, subtitle, sentence}) => {
+
+    const getLabelColor = () => {
+        switch (type) {
+            case 'M':
+                return '#CC2811';
+            case 'F':
+                return '#2EA855';
+            case 'V':
+                return '#235493';
+            case 'A':
+                return '#900C3F';
+        }
+    };
+
     return (
         <View style={styles.container}>
-            <Text style={type === 'M' ? styles.genderM : styles.genderF}>
+            <Text style={[styles.genderM, {color: getLabelColor()}]}>
                 {type}{' '}
             </Text>
             <View style={styles.container_text}>
@@ -73,6 +87,14 @@ const styles = StyleSheet.create({
     genderM: {
         ...genderStyle,
         color: '#CC2811',
+    },
+    genderV: {
+        ...genderStyle,
+        color: '#235493',
+    },
+    genderA: {
+        ...genderStyle,
+        color: '#900C3F',
     },
 });
 

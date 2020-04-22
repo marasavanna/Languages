@@ -90,6 +90,10 @@ class WordsFlatList extends Component {
                 case filters.TRANSLATION:
                     filterTranslations(search || '', filteredData);
                     break;
+                case filters.ADJECTIVES:
+                    filteredData = filteredData.filter(item => item.type === 'A');
+                    filterWords(search || '', filteredData);
+                    break;
                 case filters.NONE:
                     filterWords(search || '', filteredData);
                     break;

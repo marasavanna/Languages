@@ -24,5 +24,6 @@ export const filters = {
     FEMININE: 'feminine',
     MASCULINE: 'masculine',
     IMPURE: 'impure',
+    ADJECTIVES: 'adjectives',
     NONE: 'none',
 };

@@ -2,6 +2,7 @@ import React, {useRef} from 'react';
 import {Button, StyleSheet, View} from 'react-native';
 import t from 'tcomb-form-native';
 import {saveWord} from '../repository/LanguageRepository';
+import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scrollview';
 
 const Form = t.form.Form;
 
@@ -9,7 +10,7 @@ const Word = t.struct({
     word: t.String,
     meaning: t.String,
     sentence: t.maybe(t.String),
-    type: t.enums({M: 'Masculine', F: 'Feminine', V: 'Verb'}, 'type'),
+    type: t.enums({M: 'Masculine', F: 'Feminine', V: 'Verb', A: 'Adjective'}, 'type'),
     isImpure: t.Boolean,
 });
 
@@ -40,8 +41,10 @@ const AddScreenForm = ({navigation}) => {
     };
 
     return <View style={styles.container}>
+        <KeyboardAwareScrollView>
         <Form ref={c => formReference.current = c} type={Word} options={options}/>
         <Button title='Add Word' onPress={addWord}/>
+        </KeyboardAwareScrollView>
     </View>;
 };
 const styles = StyleSheet.create({
